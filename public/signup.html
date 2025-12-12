@@ -1,0 +1,72 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up | ChefBase</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script defer type="module" src="./js/menu.js"></script>
+    <script defer type="module" src="./js/signup.js"></script>
+  </head>
+  <body>
+    <nav class="nav">
+      <a class="logo">ChefBase</a>
+      <button class="menu-toggle">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="search.html">Search</a></li>
+        <li class="auth-link"><a href="login.html">Login</a></li>
+        <li class="auth-link"><a href="signup.html">Sign Up</a></li>
+        <li class="user-link"><a href="favorites.html">Favorites</a></li>
+        <li class="user-link" id="profile-name">
+          <a href="profile.html">Username</a>
+        </li>
+        <li class="user-link">
+          <button class="logout-btn" id="logout-btn">Log Out</button>
+        </li>
+      </ul>
+    </nav>
+
+    <main class="auth-container glass">
+      <h2>Create Account</h2>
+      <form id="signup-form">
+        <input
+          type="text"
+          id="signup-name"
+          placeholder="Name"
+          name="name"
+          required
+        />
+        <input
+          type="text"
+          id="signup-username"
+          placeholder="Username"
+          name="username"
+          required
+        />
+        <input
+          type="email"
+          id="signup-email"
+          placeholder="Email"
+          name="email"
+          required
+        />
+        <input
+          type="password"
+          id="signup-password"
+          placeholder="Password"
+          name="password"
+          required
+        />
+        <button type="submit" class="btn">Sign Up</button>
+        <p class="auth-link">
+          Already have an account? <a href="login.html">Login</a>
+        </p>
+
+        <p id="error-message" class="error"></p>
+      </form>
+    </main>
+  </body>
+</html>

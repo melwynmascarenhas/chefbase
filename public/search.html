@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Recipes | ChefBase</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script type="module" src="./js/search.js"></script>
+  </head>
+  <body>
+    <!-- Preloader code starts -->
+    <div id="preloader" class="preloader hidden">
+      <div class="loader-dots"><span></span><span></span><span></span></div>
+      <p>ChefBase is preparing your ingredients…</p>
+    </div>
+    <!-- Preloader code ends -->
+
+    <!-- Nav bar code starts -->
+    <nav class="nav">
+      <a class="logo">ChefBase</a>
+      <button class="menu-toggle">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="search.html">Search</a></li>
+        <li class="auth-link"><a href="login.html">Login</a></li>
+        <li class="auth-link"><a href="signup.html">Sign Up</a></li>
+        <li class="user-link"><a href="favorites.html">Favorites</a></li>
+        <li class="user-link" id="profile-name">
+          <a href="profile.html">Username</a>
+        </li>
+        <li class="user-link">
+          <button class="logout-btn" id="logout-btn">Log Out</button>
+        </li>
+      </ul>
+    </nav>
+    <!-- Nav bar code ends -->
+
+    <main class="search-page">
+      <div class="search-bar-container">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search for recipes..."
+        />
+        <button id="search-btn">🔍</button>
+      </div>
+
+      <section id="recipe-cards" class="cards"></section>
+    </main>
+  </body>
+</html>
