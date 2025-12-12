@@ -1,3 +1,5 @@
+import dotenv from "dotenv";
+dotenv.config();
 import express from "express";
 import session from "express-session";
 import { authRouter } from "./routes/auth.js";
@@ -5,7 +7,7 @@ import { recipesRouter } from "./routes/recipes.js";
 
 const app = express();
 const PORT = 8000;
-const secret = process.env.SPIRAL_SESSION_SECRET || "jellyfish-baskingshark";
+const secret = process.env.CHEFBASE_SECRET;
 
 app.use(express.json());
 
