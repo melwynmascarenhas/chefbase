@@ -322,19 +322,6 @@ main {
 }
 
 /* =====================================================
-   EMPTY STATE
-   ===================================================== */
-.empty-state {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 80vh;
-  font-size: 1.2rem;
-  color: #444;
-}
-
-/* =====================================================
    PRELOADER
    ===================================================== */
 .preloader {
@@ -597,10 +584,14 @@ section h2 {
 
 .loading-state,
 .empty-state {
-  position: absolute;
+  grid-column: 1 / -1;
   width: 100%;
   text-align: center;
   color: #555;
   font-size: 1.1rem;
-  margin-top: 2rem;
+  margin: 0;
+  padding: 100px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
