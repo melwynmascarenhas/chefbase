@@ -15,7 +15,7 @@ window.showLoader = showLoader;
 window.hideLoader = hideLoader;
 
 // Render recipe cards dynamically
-export function renderRecipes(recipes) {
+export function renderRecipes(recipes, isLoggedIn = false) {
   const container = document.getElementById("recipe-cards");
   if (!container) return;
 
@@ -30,7 +30,11 @@ export function renderRecipes(recipes) {
     <div class="card glass" data-meal="${r.id}">
       <div class="image-wrapper">
         <img src="${r.image}" alt="${r.title}" />
-        <span class="fav-icon">${r.isFavorite ? "❤️" : "🤍"}</span>
+        ${
+          isLoggedIn
+            ? `<span class="fav-icon">${r.isFavorite ? "❤️" : "🤍"}</span>`
+            : ``
+        }
       </div>
 
       <h3>${r.title}</h3>

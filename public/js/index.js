@@ -6,9 +6,9 @@ import { renderRecipes, showLoader, hideLoader } from "./recipeUI.js";
 document.addEventListener("DOMContentLoaded", async () => {
   document.getElementById("logout-btn").addEventListener("click", logout);
   showLoader();
-  await checkSession();
+  let session = await checkSession();
   const recipes = await fetchHomeRecipes();
-  renderRecipes(recipes);
+  renderRecipes(recipes, session.isLoggedIn);
   hideLoader();
 });
 
@@ -16,9 +16,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 window.addEventListener("pageshow", async (event) => {
   if (event.persisted) {
     showLoader();
-    await checkSession();
+    let session = await checkSession();
     const recipes = await fetchHomeRecipes();
-    renderRecipes(recipes);
+    renderRecipes(recipes, session.isLoggedIn);
     hideLoader();
   }
 });

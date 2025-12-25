@@ -26,7 +26,7 @@ async function loadRecipe() {
   try {
     let recipe = await getRecipeById(id);
 
-    console.log(recipe);
+    console.log(recipe.instructions);
 
     const addBtn = document.getElementById("add-fav-btn");
     const removeBtn = document.getElementById("remove-fav-btn");

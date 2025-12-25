@@ -5,13 +5,14 @@ import { getFavorites } from "./favoritesService.js";
 
 async function loadFavorites() {
   showLoader();
-  await checkSession();
+
+  let session = await checkSession();
 
   const empty = document.getElementById("no-favorites");
   const favorites = await getFavorites();
 
   if (favorites.length > 0) {
-    renderRecipes(favorites);
+    renderRecipes(favorites, session.isLoggedIn);
     empty.classList.add("hidden");
   } else {
     empty.classList.remove("hidden");

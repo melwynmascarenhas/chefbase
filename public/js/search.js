@@ -5,8 +5,10 @@ import { fetchRecipes } from "./recipeService.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   showLoader();
-  await checkSession();
+  let session = await checkSession();
   hideLoader();
+
+  document.getElementById("logout-btn").addEventListener("click", logout);
 
   const searchInput = document.getElementById("search-input");
   const searchBtn = document.getElementById("search-btn");
@@ -24,7 +26,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     resultsContainer.innerHTML = `<p class="loading-state">Searching recipes...</p>`;
 
     const recipes = await fetchRecipes(query);
-    renderRecipes(recipes);
+    renderRecipes(recipes, session.isLoggedIn);
   }
 
   // Search on button click
@@ -38,6 +40,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 // Fix old-state when navigating back
 window.addEventListener("pageshow", async (event) => {
+  showLoader();
+  let session = await checkSession();
+  hideLoader();
+
   if (event.persisted) {
     const searchInput = document.getElementById("search-input");
 
@@ -48,7 +54,7 @@ window.addEventListener("pageshow", async (event) => {
       resultsContainer.innerHTML = `<p class="loading-state">Refreshing results...</p>`;
 
       const recipes = await fetchRecipes(searchInput.value.trim());
-      renderRecipes(recipes);
+      renderRecipes(recipes, session.isLoggedIn);
     }
   }
 });
