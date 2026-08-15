@@ -11,7 +11,7 @@ export async function checkSession() {
     if (data.isLoggedIn) {
       authLinks.forEach((e) => e.classList.add("hidden"));
       userLinks.forEach((e) => e.classList.remove("hidden"));
-      document.getElementById("profile-name").textContent = `${data.name} ▾`;
+      document.getElementById("profile-name").textContent = `${data.name}`;
     } else {
       authLinks.forEach((e) => e.classList.remove("hidden"));
       userLinks.forEach((e) => e.classList.add("hidden"));

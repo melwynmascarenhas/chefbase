@@ -1,6 +1,6 @@
 import { checkSession } from "./authUI.js";
 import { logout } from "./logout.js";
-import { showLoader, hideLoader, renderRecipes } from "./recipeUI.js";
+import { showLoader, hideLoader, renderRecipes } from "./recipeCards.js";
 import { fetchRecipes } from "./recipeService.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   async function handleSearch() {
     const query = searchInput.value.trim();
     if (!query) {
-      resultsContainer.innerHTML = `<p class="loading-state">Type something to search 🍲</p>`;
+      resultsContainer.innerHTML = `<p class="loading-state">Type something to search...</p>`;
       return;
     }
 

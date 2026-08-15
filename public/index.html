@@ -5,6 +5,7 @@
     <title>ChefBase</title>
     <link rel="icon" type="image/png" href="./images/favicon.png" />
     <link rel="stylesheet" href="./css/style.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script type="module" src="./js/index.js"></script>
     <script type="module" src="./js/menu.js"></script>
   </head>
@@ -30,7 +31,7 @@
         <li class="auth-link"><a href="signup.html">Sign Up</a></li>
         <li class="user-link"><a href="favorites.html">Favorites</a></li>
         <li class="user-link" id="profile-name">
-          <a href="profile.html">Username</a>
+        Username
         </li>
         <li class="user-link">
           <button class="logout-btn" id="logout-btn">Log Out</button>
@@ -44,5 +45,12 @@
       <br />
       <section class="cards" id="recipe-cards"></section>
     </main>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        if (window.lucide) {
+          window.lucide.createIcons();
+        }
+      });
+    </script>
   </body>
 </html>

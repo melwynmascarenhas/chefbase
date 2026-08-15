@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login | ChefBase</title>
     <link rel="stylesheet" href="./css/style.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script type="module" src="./js/menu.js"></script>
     <script type="module" src="./js/login.js"></script>
   </head>
@@ -26,7 +27,7 @@
         <li class="auth-link"><a href="signup.html">Sign Up</a></li>
         <li class="user-link"><a href="favorites.html">Favorites</a></li>
         <li class="user-link" id="profile-name">
-          <a href="profile.html">Username</a>
+         Username
         </li>
         <li class="user-link">
           <button class="logout-btn" id="logout-btn">Log Out</button>
@@ -58,5 +59,12 @@
         <p id="error-message" class="error"></p>
       </form>
     </main>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        if (window.lucide) {
+          window.lucide.createIcons();
+        }
+      });
+    </script>
   </body>
 </html>

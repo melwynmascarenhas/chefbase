@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Search Recipes | ChefBase</title>
     <link rel="stylesheet" href="./css/style.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script type="module" src="./js/search.js"></script>
   </head>
   <body>
@@ -29,7 +30,7 @@
         <li class="auth-link"><a href="signup.html">Sign Up</a></li>
         <li class="user-link"><a href="favorites.html">Favorites</a></li>
         <li class="user-link" id="profile-name">
-          <a href="profile.html">Username</a>
+         Username
         </li>
         <li class="user-link">
           <button class="logout-btn" id="logout-btn">Log Out</button>
@@ -45,10 +46,17 @@
           id="search-input"
           placeholder="Search for recipes..."
         />
-        <button id="search-btn">🔍</button>
+        <button id="search-btn"><i data-lucide="search"></i></button>
       </div>
 
       <section id="recipe-cards" class="cards"></section>
     </main>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        if (window.lucide) {
+          window.lucide.createIcons();
+        }
+      });
+    </script>
   </body>
 </html>

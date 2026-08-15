@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ChefBase</title>
     <link rel="stylesheet" href="./css/style.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script type="module" src="./js/recipe.js"></script>
     <script type="module" src="./js/authUI.js"></script>
     <script type="module" src="./js/menu.js"></script>
@@ -15,7 +16,7 @@
     </div>
 
     <div class="details-nav">
-      <a href="javascript:history.back()" class="back-link">← Back</a>
+      <a href="javascript:history.back()" class="back-link"><i data-lucide="arrow-left"></i> Back</a>
     </div>
 
     <nav class="nav">
@@ -31,7 +32,7 @@
         <li class="auth-link"><a href="signup.html">Sign Up</a></li>
         <li class="user-link"><a href="favorites.html">Favorites</a></li>
         <li class="user-link" id="profile-name">
-          <a href="profile.html">Username</a>
+         Username
         </li>
         <li class="user-link">
           <button class="logout-btn" id="logout-btn">Log Out</button>
@@ -48,10 +49,10 @@
           <p id="recipe-area"></p>
           <div class="favorite-actions">
             <button id="add-fav-btn" class="fav-btn">
-              ❤️ Add to Favorites
+              <i data-lucide="heart"></i> Add to Favorites
             </button>
             <button id="remove-fav-btn" class="fav-btn remove">
-              🗑️ Remove Favorite
+              <i data-lucide="trash-2"></i> Remove Favorite
             </button>
           </div>
         </div>
@@ -72,5 +73,12 @@
         <iframe id="recipe-video" allowfullscreen></iframe>
       </section>
     </main>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        if (window.lucide) {
+          window.lucide.createIcons();
+        }
+      });
+    </script>
   </body>
 </html>

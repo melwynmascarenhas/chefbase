@@ -20,7 +20,15 @@ export function renderRecipes(recipes, isLoggedIn = false) {
   if (!container) return;
 
   if (!recipes || recipes.length === 0) {
-    container.innerHTML = `<p class="empty-state">No recipes found 🍳</p>`;
+    container.innerHTML = `
+      <div class="empty-state">
+        <i data-lucide="cooking-pot" style="width: 48px; height: 48px; color: var(--text-secondary);"></i>
+        <p>No recipes found</p>
+      </div>
+    `;
+    if (window.lucide) {
+      window.lucide.createIcons();
+    }
     return;
   }
 
@@ -32,17 +40,25 @@ export function renderRecipes(recipes, isLoggedIn = false) {
         <img src="${r.image}" alt="${r.title}" />
         ${
           isLoggedIn
-            ? `<span class="fav-icon">${r.isFavorite ? "❤️" : "🤍"}</span>`
+            ? `<span class="fav-icon">${
+                r.isFavorite
+                  ? `<i data-lucide="heart" class="heart-icon filled"></i>`
+                  : `<i data-lucide="heart" class="heart-icon"></i>`
+              }</span>`
             : ``
         }
       </div>
 
       <h3>${r.title}</h3>
-      <p>${r.area} • ${r.category}</p>
+      <p>${r.area || "Somewhere Delicious"} • ${r.category || "Special"}</p>
     </div>
   `
     )
     .join("");
+
+  if (window.lucide) {
+    window.lucide.createIcons();
+  }
 
   document.querySelectorAll(".card").forEach((card) => {
     card.addEventListener("click", () => {

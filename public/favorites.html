@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Favorites | ChefBase</title>
     <link rel="stylesheet" href="./css/style.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script type="module" src="./js/menu.js"></script>
     <script type="module" src="./js/favorites.js"></script>
   </head>
@@ -27,7 +28,7 @@
         <li class="auth-link"><a href="signup.html">Sign Up</a></li>
         <li class="user-link"><a href="favorites.html">Favorites</a></li>
         <li class="user-link" id="profile-name">
-          <a href="profile.html">Username</a>
+          Username
         </li>
         <li class="user-link">
           <button class="logout-btn" id="logout-btn">Log Out</button>
@@ -35,19 +36,23 @@
       </ul>
     </nav>
 
-    <div id="preloader" class="preloader hidden">
-      <div class="loader-dots"><span></span><span></span><span></span></div>
-      <p>ChefBase is preparing your ingredients…</p>
-    </div>
-
+   
     <main>
       <h2>Favorites</h2>
       <br />
       <section class="cards" id="recipe-cards"></section>
 
       <div id="no-favorites" class="empty-state glass hidden">
-        <p>You haven’t saved any recipes yet 🍳</p>
+        <i data-lucide="cooking-pot" style="width: 48px; height: 48px; color: var(--text-secondary);"></i>
+        <p>You haven’t saved any recipes yet</p>
       </div>
     </main>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        if (window.lucide) {
+          window.lucide.createIcons();
+        }
+      });
+    </script>
   </body>
 </html>

@@ -1,5 +1,5 @@
 import { getRecipeById } from "./recipeService.js";
-import { showLoader, hideLoader } from "./recipeUI.js";
+import { showLoader, hideLoader } from "./recipeCards.js";
 import { logout } from "./logout.js";
 import { checkSession } from "./authUI.js";
 import { addFavorite, removeFavorite } from "./favoritesService.js";
@@ -90,7 +90,9 @@ async function loadRecipe() {
     document.getElementById(
       "recipe-category"
     ).textContent = `Category: ${recipe.category}`;
-    document.getElementById("recipe-area").textContent = `Area: ${recipe.area}`;
+    document.getElementById("recipe-area").textContent = `Area: ${
+      recipe.area || "Somewhere Delicious"
+    }`;
     document.getElementById("recipe-thumb").src = recipe.image;
 
     // Ingredients + measures

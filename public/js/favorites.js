@@ -1,6 +1,6 @@
 import { checkSession } from "./authUI.js";
 import { logout } from "./logout.js";
-import { showLoader, hideLoader, renderRecipes } from "./recipeUI.js";
+import { showLoader, hideLoader, renderRecipes } from "./recipeCards.js";
 import { getFavorites } from "./favoritesService.js";
 
 async function loadFavorites() {

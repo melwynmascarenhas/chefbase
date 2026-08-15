@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 - Page Not Found | ChefBase</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script type="module" src="/js/menu.js"></script>
+    <script type="module">
+      import { checkSession } from "/js/authUI.js";
+      import { logout } from "/js/logout.js";
+
+      document.addEventListener("DOMContentLoaded", async () => {
+        await checkSession();
+        const logoutBtn = document.getElementById("logout-btn");
+        if (logoutBtn) {
+          logoutBtn.addEventListener("click", logout);
+        }
+        if (window.lucide) {
+          window.lucide.createIcons();
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <!-- Nav bar code starts -->
+    <nav class="nav">
+      <a href="/index.html" class="logo">ChefBase</a>
+      <button class="menu-toggle" aria-label="Toggle Navigation">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/search.html">Search</a></li>
+        <li class="auth-link"><a href="/login.html">Login</a></li>
+        <li class="auth-link"><a href="/signup.html">Sign Up</a></li>
+        <li class="user-link"><a href="/favorites.html">Favorites</a></li>
+        <li class="user-link" id="profile-name">Username</li>
+        <li class="user-link">
+          <button class="logout-btn" id="logout-btn">Log Out</button>
+        </li>
+      </ul>
+    </nav>
+    <!-- Nav bar code ends -->
+
+    <main class="auth-container" style="max-width: 480px; margin-top: calc(72px + 3rem);">
+      <div style="margin-bottom: 1rem;">
+        <i data-lucide="cooking-pot" style="width: 56px; height: 56px; color: var(--primary);"></i>
+      </div>
+      
+      <h1 style="font-size: 3.5rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem; line-height: 1;">404</h1>
+      <h2 style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem;">Page Not Found</h2>
+      
+      <p style="color: var(--text-secondary); margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.5;">
+        Oops! We searched through our entire cookbook, but couldn't find the recipe or page you're looking for.
+      </p>
+
+      <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+        <a href="/index.html" class="btn" style="text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 0;">
+          <i data-lucide="home" style="width: 18px; height: 18px;"></i> Back to Home
+        </a>
+        <a href="/search.html" class="logout-btn" style="text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 0.5rem; width: 100%; padding: 0.85rem; text-align: center;">
+          <i data-lucide="search" style="width: 18px; height: 18px;"></i> Search Recipes
+        </a>
+      </div>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        if (window.lucide) {
+          window.lucide.createIcons();
+        }
+      });
+    </script>
+  </body>
+</html>
