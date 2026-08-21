@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 	const toggle = document.querySelector(".menu-toggle");
 	const navLinks = document.querySelector(".nav-links");
-	const logoutBtn = document.getElementById("logout-btn");
 
 	// Mobile menu toggle
 	if (toggle && navLinks) {
