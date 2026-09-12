@@ -71,9 +71,10 @@ export async function loginUser(req, res) {
 	try {
 		db = await getDBConnection();
 
-		const user = await db.get("SELECT * FROM users WHERE username = ?", [
-			username,
-		]);
+		const user = await db.get(
+			"SELECT * FROM users WHERE username = ? OR email = ?",
+			[username, username],
+		);
 
 		if (!user) {
 			return res.status(401).json({ error: "Invalid credentials" });
